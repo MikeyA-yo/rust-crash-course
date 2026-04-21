@@ -1,5 +1,7 @@
 use std::collections::HashMap;
 
 pub fn init(address: String, amount: u32) -> HashMap<String, u32> {
-    todo!();
+    let mut add = HashMap::new();
+    add.insert(address, amount);
+    add
 }
