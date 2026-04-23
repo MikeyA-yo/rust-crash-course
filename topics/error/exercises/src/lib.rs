@@ -4,9 +4,16 @@ pub enum MathError {
 }
 
 pub fn div(x: u32, y: u32) -> Result<u32, MathError> {
-    todo!();
+    let z = match y {
+        0 => Err(MathError::DivByZero),
+        _ => Ok(x / y),
+    };
+    z
 }
 
 pub fn get(v: &[u32], i: usize, default_val: u32) -> u32 {
-    todo!();
+    match v.get(i) {
+        Some(val) => *val,
+        None => default_val,
+    }
 }
