@@ -1,18 +1,18 @@
 use std::time::Duration;
 use tokio::time::sleep;
 
-fn hello() {
+async fn hello() {
     println!("Hello async Rust!");
 }
 
-fn add(x: u32, y: u32) -> u32 {
-    sleep(Duration::from_millis(1000));
+async fn add(x: u32, y: u32) -> u32 {
+    sleep(Duration::from_millis(1000)).await;
     x + y
 }
+#[tokio::main]
+async fn main() {
+    hello().await;
 
-fn main() {
-    hello();
-
-    let sum = add(1, 2);
+    let sum = add(1, 2).await;
     println!("sum: {sum}");
 }
